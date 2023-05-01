@@ -4,23 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splashscreen_wo_name2"
     tools:context=".SplashScreen">
 
     <ImageView
         android:id="@+id/logosplash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginTop="510dp"
-        android:layout_marginBottom="130dp"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/name_of_app" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:src="@drawable/logo3_1" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/authorsign"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:src="@drawable/bypashkovnk"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginStart="100dp"-->
+<!--        android:layout_marginEnd="100dp"-->
+<!--        android:layout_marginBottom="25dp"/>-->
+
 
 </RelativeLayout>
