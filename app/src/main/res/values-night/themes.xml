@@ -1,4 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Splashscreen Theme -->
+    <style name="Splashscreen_Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen_night</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_v2</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_v2</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="Theme.JAFA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -13,6 +22,26 @@
         <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_night</item>
         <!-- Customize your theme here. -->
         <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_night</item>
-        <item name="android:background">@drawable/background_night</item>
+        <item name="android:background" >@drawable/background_night</item>
+
+    </style>
+    <!-- Dark mode logo -->
+    <style name="Logo">
+        <item name="android:src">@drawable/logo_v2_1</item>
+    </style>
+    <!-- Dark mode toolbar-->
+    <style name="Toolbar">
+        <item name="android:background">@color/statusbar_night</item>
+    </style>
+
+    <!-- Dark mode functional block -->
+    <style name="Functional_block">
+        <item name="android:background">@drawable/functional_block_backrogund</item>
+    </style>
+
+
+    <!-- Dark mode text -->
+    <style name="Text">
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

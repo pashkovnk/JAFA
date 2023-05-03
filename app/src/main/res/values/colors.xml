@@ -10,5 +10,11 @@
     <color name="statusbar">#FFE600</color>
     <color name="navigationbar">#FFD600</color>
     <color name="statusbar_night">#000000</color>
-    <color name="navigationbar_night">#31075C</color>
+    <color name="navigationbar_night">#0B0024</color>
+    <color name="statusbar_v2">#F6FEFF</color>
+    <color name="navigationbar_v2">#DDE1F0</color>
+    <color name="functional_block_start_color">#105E89</color>
+    <color name="functional_block_end_color">#2493E3</color>
+    <color name="progressbar_light_start_color">#030871</color>
+    <color name="progressbar_light_end_color">#2026C0</color>
 </resources>

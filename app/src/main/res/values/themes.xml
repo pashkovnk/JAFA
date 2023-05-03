@@ -1,18 +1,80 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Light mode screen -->
+    <style name="Screen">
+        <item name="android:background" >@drawable/background</item>
+    </style>
+
+    <!-- Splashscreen Theme -->
+    <style name="Splashscreen_Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen_light</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_v2</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_v2</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+
     <!-- Base application theme. -->
     <style name="Theme.JAFA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/navigationbar</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_v2</item>
         <!-- Customize your theme here. -->
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar</item>
-        <item name="android:background" >@drawable/background</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_v2</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+    <!-- Light mode logo -->
+    <style name="Logo">
+        <item name="android:src">@drawable/logo_v2_1_day</item>
+    </style>
+
+    <!-- Light mode toolbar-->
+    <style name="Toolbar">
+        <item name="android:background">@color/statusbar_v2</item>
+    </style>
+
+    <!-- Light mode functional block -->
+    <style name="Functional_block">
+        <item name="android:background">@drawable/functional_block_backrogund</item>
+    </style>
+
+
+    <!-- Light mode text functional block name -->
+    <style name="Functional_block_Name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">25.0dp</item>
+    </style>
+
+    <!-- Light mode text functional block text -->
+    <style name="Functional_block_Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">25.0dp</item>
+    </style>
+
+
+    <!-- Light mode progress bar -->
+    <style name="ProgressBar">
+        <item name="android:startColor">@color/progressbar_light_start_color</item>
+        <item name="android:endColor">@color/progressbar_light_end_color</item>
+    </style>
+
+
+    <!-- Стрелка -->
+    <style name="arrow">
+        <item name="android:fillColor" tools:targetApi="lollipop">@color/statusbar_v2</item>
     </style>
 </resources>

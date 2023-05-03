@@ -2,67 +2,187 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Screen"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="233dp"
-        android:layout_height="196dp"
-        android:src="@drawable/blockkkk" />
-
-    <androidx.appcompat.widget.Toolbar
+    <Toolbar
         android:id="@+id/toolbar"
+        style="@style/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="toolbar" />
+        android:title="@string/app_name"
+        android:gravity="center"
+        tools:targetApi="lollipop" />
 
-<!--    <ScrollView-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="fill_parent"-->
-<!--        android:scrollbars="none"-->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none">
+
+        <!-- Функциональные блоки -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25.0dp"
+            android:layout_marginRight="25.0dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Блок шагомера -->
+            <LinearLayout
+                style="@style/Functional_block"
+                android:id="@+id/stepcounter_block"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <!-- Содержимое блока шагомера -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="23dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <!-- Шаги    пройдено/цель-->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.0"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Functional_block_Name"
+                            android:text="@string/stepcounter"
+                            app:fontFamily="@font/montserrat_bold" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Functional_block_Text"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="6000"
+                            app:fontFamily="@font/montserrat_semibold" />
+                        <!-- Разграничитель -->
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Functional_block_Text"
+                            android:text="@string/stepcounter_separator"
+                            app:fontFamily="@font/montserrat_semibold" />
+                        <!-- Цель по шагам -->
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Functional_block_Text"
+                            android:text="10000"
+                            app:fontFamily="@font/montserrat_semibold" />
+
+                    </LinearLayout>
+
+                    <!-- Прогрессбар -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="7dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/progress_bar"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Блок состава тела -->
+            <LinearLayout
+                style="@style/Functional_block"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <!-- Содержимое блока -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="23dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- Шаги    пройдено/цель-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.0"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Functional_block_Name"
+                            android:text="@string/body_composition"
+                            app:fontFamily="@font/montserrat_bold" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/body_composition_button_arrow"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/strelka_vlevo"
+                        app:backgroundTint="#FFFFFF"
+                        android:text=" "/>
 
 
-<!--        >-->
+                </LinearLayout>
+            </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
+            <!-- Блок тренировок -->
+            <LinearLayout
+                style="@style/Functional_block"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="fill_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="10.0dp"-->
-<!--                android:layout_marginTop="15.0dp"-->
-<!--                android:background="@drawable/block_background"-->
-<!--                android:orientation="vertical"-->
-<!--                >-->
+                <!-- Содержимое блока -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="23dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="fill_parent"-->
-<!--                    android:layout_height="150dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    >-->
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="fill_parent"-->
-<!--                        android:layout_height=""-->
+                    <!-- Шаги    пройдено/цель-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.0"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Functional_block_Name"
+                            android:text="@string/trainings"
+                            app:fontFamily="@font/montserrat_bold" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/trainings_button_arrow"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/strelka_vlevo"
+                        android:text=""
+                        app:backgroundTint="#FFFFFF" />
 
 
+                </LinearLayout>
+            </LinearLayout>
 
-<!--                    -->
+        </LinearLayout>
 
-<!--                </LinearLayout>-->
-
-
-
-
-<!--        </LinearLayout>-->
-
-
-<!--    </ScrollView>-->
+    </ScrollView>
 
 </LinearLayout>
