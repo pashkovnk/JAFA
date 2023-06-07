@@ -4,4 +4,6 @@
     <string name="stepcounter">Шаги</string>
     <string name="stepcounter_separator">/</string>
     <string name="trainings">Тренировки</string>
+    <string name="to_body_composition">Переход в раздел Состав тела</string>
+    <string name="to_trainings">Переход в раздел Тренировки</string>
 </resources>

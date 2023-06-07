@@ -68,7 +68,8 @@
                             android:layout_weight="1"
                             android:gravity="end"
                             android:text="6000"
-                            app:fontFamily="@font/montserrat_semibold" />
+                            app:fontFamily="@font/montserrat_semibold"
+                            android:layout_width="0dp" />
                         <!-- Разграничитель -->
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/Functional_block_Text"
@@ -112,7 +113,7 @@
 
                     <!-- Шаги    пройдено/цель-->
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1.0"
@@ -129,9 +130,9 @@
                         android:id="@+id/body_composition_button_arrow"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/strelka_vlevo"
-                        app:backgroundTint="#FFFFFF"
-                        android:text=" "/>
+                        android:background="@drawable/strelka_vpravo"
+                        android:contentDescription="@string/to_body_composition"
+                        app:backgroundTint="#FFFFFF" />
 
 
                 </LinearLayout>
@@ -156,7 +157,7 @@
 
                     <!-- Шаги    пройдено/цель-->
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1.0"
@@ -173,8 +174,8 @@
                         android:id="@+id/trainings_button_arrow"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/strelka_vlevo"
-                        android:text=""
+                        android:background="@drawable/strelka_vpravo"
+                        android:contentDescription="@string/to_trainings"
                         app:backgroundTint="#FFFFFF" />
 
 
