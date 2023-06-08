@@ -1,47 +1,156 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Splashscreen Theme -->
-    <style name="Splashscreen_Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Базовый фон -->
+    <style name="Screen">
+        <item name="android:background" >@drawable/background_night</item>
+    </style>
+
+    <!-- Тема Состав тела -->
+    <style name="BodyComposition_Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splashscreen_night</item>
-        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_v2</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_v2</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_night</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_night</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
+
+    <!-- Тема Сплэшскрин -->
+    <style name="Splashscreen_Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen_night</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_night</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_night</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
 
     <!-- Base application theme. -->
     <style name="Theme.JAFA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">#000000</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/navigationbar</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_night</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/statusbar_v2</item>
         <!-- Customize your theme here. -->
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_night</item>
-        <item name="android:background" >@drawable/background_night</item>
-
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationbar_v2</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
-    <!-- Dark mode logo -->
+    <!-- Light mode logo -->
     <style name="Logo">
-        <item name="android:src">@drawable/logo_v2_1</item>
+        <item name="android:src">@drawable/logo_v2_1_day</item>
     </style>
-    <!-- Dark mode toolbar-->
+
+    <!-- Light mode toolbar-->
     <style name="Toolbar">
         <item name="android:background">@color/statusbar_night</item>
     </style>
 
-    <!-- Dark mode functional block -->
+    <!-- Light mode functional block -->
     <style name="Functional_block">
         <item name="android:background">@drawable/functional_block_backrogund</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="Functional_block_content">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">23dp</item>
     </style>
 
 
-    <!-- Dark mode text -->
-    <style name="Text">
-        <item name="android:textColor">@color/white</item>
+    <!-- Фон с закругленными верхними углами поверх основного фона -->
+    <style name="Second_background">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:gravity">top</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">30dp</item>
     </style>
+
+    <!-- Light mode text functional block name -->
+    <style name="Functional_block_Name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:textColor">@color/navigationbar</item>
+        <item name="android:textSize">25.0sp</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <!-- Light mode text functional block text -->
+    <style name="Functional_block_Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:textColor">@color/navigationbar</item>
+        <item name="android:textSize">25.0sp</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+
+
+    <!-- Light mode text on light background -->
+    <style name="Text_for_background">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:textColor">@color/statusbar_night</item>
+        <item name="android:textSize">50sp</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <!-- Light mode progress bar -->
+    <style name="ProgressBar">
+        <item name="android:startColor">@color/progressbar_light_start_color</item>
+        <item name="android:endColor">@color/progressbar_light_end_color</item>
+    </style>
+
+
+    <!-- Стрелка -->
+    <style name="arrow">
+        <item name="android:fillColor" tools:targetApi="lollipop">@color/navigationbar</item>
+    </style>
+
+    <!-- Название параметра тела -->
+    <style name="bodyParameterName">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:textColor">@color/navigationbar</item>
+        <item name="android:textSize">25.0sp</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:layout_weight">0.1</item>
+    </style>
+
+    <!-- Значение параметра тела -->
+    <style name="bodyParameterValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:textColor">@color/navigationbar</item>
+        <item name="android:textSize">20.0sp</item>
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <!-- Строка параметра тела -->
+    <style name="bodyParameterRow">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+
 </resources>

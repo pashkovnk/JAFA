@@ -9,6 +9,11 @@ public class UserHeight extends BodyParameterParentClass implements Serializable
     }
 
     @Override
+    public void setParameterValuesHistory(ArrayList<Double> parameterValuesHistory) {
+        super.setParameterValuesHistory(parameterValuesHistory);
+    }
+
+    @Override
     public double getParameterValue() {
         return super.getParameterValue();
     }

@@ -5,31 +5,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.jafa.R;
 import com.example.jafa.models.*;
 
-public class BodyComposition extends AppCompatActivity {
+import java.io.Serializable;
 
+/**
+ * Класс экрана "Состав тела"
+ *
+ * @author Пашков Никита
+ * @version 1.0
+ */
+public class BodyComposition extends AppCompatActivity implements Serializable {
 
+    /**
+     * Поле класса с вычислениями
+     **/
     private BodyCompositionCalculations bodyCompositionCalculations;
 
-    TextView currentWeightView;
-    TextView currentBMIView;
-    TextView currentMusclesWeightView;
-    TextView currentFatPercentsView;
-    TextView currentHeightView;
-
-//    private UserWeight userWeight = new UserWeight();
-//    private UserHeight userHeight = new UserHeight();
-//    private UserMusclesWeight userMusclesWeight = new UserMusclesWeight();
-//    private UserFatPercents userFatPercents = new UserFatPercents();
-
-    //private BodyCompositionCalculations bodyCompositionCalculations = new BodyCompositionCalculations();
+    /**
+     * Поля класса текстовых полей
+     **/
+    private TextView currentWeightView;
+    private TextView currentBMIView;
+    private TextView currentMusclesWeightView;
+    private TextView currentFatPercentsView;
+    private TextView currentHeightView;
 
 
+    /**
+     * Метод создания экрана
+     */
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +56,13 @@ public class BodyComposition extends AppCompatActivity {
         currentFatPercentsView.setText(0.0 + " %");
         currentHeightView.setText(0.0 + "м");
 
-
-//        currentWeight.setText(bodyCompositionCalculations.getUserWeight() + " кг");
-//        currentBMI.setText(bodyCompositionCalculations.getBodyMassIndex() + " eд");
-//        currentMusclesWeight.setText(bodyCompositionCalculations.getUserWeight() + " кг");
-//        currentFatPercents.setText(bodyCompositionCalculations.getUserFatPercents() + " %");
-//        currentHeight.setText(bodyCompositionCalculations.getUserHeight() + "м");
-
     }
 
+    /**
+     * Метод обработки нажатия кнопки "Внести изменения"
+     *
+     * @param view
+     */
     public void editParametersButton(View view) {
         currentWeightView.setText(3.0 + " кг");
         currentMusclesWeightView.setText(3.0 + " кг");

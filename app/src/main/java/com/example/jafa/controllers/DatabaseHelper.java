@@ -12,15 +12,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * Класс, отвечающий за работу с базой данных
+ */
 public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
 
 
-    // Статические переменные для более удобной работы с БД
+    /** Поля БД **/
     private static final String DATABASE_NAME = "userData.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_NAME = "mytable";
+    private static final String TABLE_NAME = "data";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_WEIGHT = "weight";
     private static final String COLUMN_HEIGHT = "height";
@@ -29,13 +31,13 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
     private static final String COLUMN_FAT_PERCENTAGE = "fat_percentage";
     private static final String COLUMN_BMI = "bmi";
 
-    private List<String> columns = new ArrayList(Arrays.asList(COLUMN_WEIGHT, COLUMN_HEIGHT, COLUMN_NAME, COLUMN_MUSCLES_WEIGHT,
-            COLUMN_FAT_PERCENTAGE, COLUMN_BMI));
 
+    /** Конструктор класса **/
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /** Метод создания базы данных **/
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
@@ -49,24 +51,29 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
         getAllDataList();
     }
 
+    /** Метод перехода на новую версию БД **/
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
+    /** Метод получения данных из БД **/
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
+    /** Метод получения данных из БД **/
     @SuppressLint("Range")
     public ArrayList<String> getAllDataList() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         ArrayList<String> dataList = new ArrayList<>();
-        if(this.getAllData().getCount() > 0){
-            for (String column : columns){
+        List<String> columns = new ArrayList(Arrays.asList(COLUMN_WEIGHT, COLUMN_HEIGHT, COLUMN_NAME, COLUMN_MUSCLES_WEIGHT,
+                COLUMN_FAT_PERCENTAGE, COLUMN_BMI));
+        if (this.getAllData().getCount() > 0) {
+            for (String column : columns) {
                 dataList.add(cursor.getString(cursor.getColumnIndex(column)));
             }
         } else {
@@ -76,6 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
         return dataList;
     }
 
+    /** Метод передачи данных в БД **/
     public boolean insertData(double weight, double height, String name, double muscleMass, double fatPercentage, double bmi) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -89,6 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
         return result != -1;
     }
 
+    /** Метод обновления данных в БД **/
     public boolean updateData(int id, double weight, double height, String name, double muscleMass, double fatPercentage, double bmi) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -102,6 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
         return result > 0;
     }
 
+    /** Метод удаления данных из БД **/
     public Integer deleteData(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});

@@ -6,8 +6,12 @@ import android.os.Bundle;
 
 import com.example.jafa.R;
 
-public class Trainings extends AppCompatActivity {
+import java.io.Serializable;
 
+/** Класс экрана "Тренировки" **/
+public class Trainings extends AppCompatActivity implements Serializable {
+
+    /** Метод создания **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

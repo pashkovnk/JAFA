@@ -19,6 +19,11 @@ public class UserWeight extends BodyParameterParentClass implements Serializable
     }
 
     @Override
+    public void setParameterValuesHistory(ArrayList<Double> parameterValuesHistory) {
+        super.setParameterValuesHistory(parameterValuesHistory);
+    }
+
+    @Override
     public ArrayList<Double> getParameterValuesHistory() {
         return super.getParameterValuesHistory();
     }

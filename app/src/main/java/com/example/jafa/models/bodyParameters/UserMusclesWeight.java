@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UserMusclesWeight extends BodyParameterParentClass implements Serializable {
+    @Override
+    public void setParameterValuesHistory(ArrayList<Double> parameterValuesHistory) {
+        super.setParameterValuesHistory(parameterValuesHistory);
+    }
+
     public UserMusclesWeight() {
         super();
     }

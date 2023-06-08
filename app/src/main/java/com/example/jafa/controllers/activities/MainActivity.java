@@ -2,9 +2,8 @@ package com.example.jafa.controllers.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,11 +12,17 @@ import com.example.jafa.R;
 import com.example.jafa.controllers.DatabaseHelper;
 import com.example.jafa.models.StepCounter;
 
+import java.io.Serializable;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Класс главного экрана приложения
+ */
+public class MainActivity extends AppCompatActivity implements Serializable {
 
+    /** Поле класса, отвечающего за работу с БД **/
     DatabaseHelper databaseHelper;
 
+    /**  **/
     private StepCounter stepCounter;
     private TextView stepCountTextView;
 

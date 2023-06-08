@@ -5,7 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class SplashScreen extends AppCompatActivity {
+import java.io.Serializable;
+
+/** Класс сплэш скрина **/
+public class SplashScreen extends AppCompatActivity implements Serializable {
+
+    /** Метод создания **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
