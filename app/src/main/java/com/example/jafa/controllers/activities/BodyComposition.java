@@ -4,12 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.jafa.R;
 import com.example.jafa.models.*;
 
 public class BodyComposition extends AppCompatActivity {
+
+
+    private BodyCompositionCalculations bodyCompositionCalculations;
+
+    TextView currentWeightView;
+    TextView currentBMIView;
+    TextView currentMusclesWeightView;
+    TextView currentFatPercentsView;
+    TextView currentHeightView;
 
 //    private UserWeight userWeight = new UserWeight();
 //    private UserHeight userHeight = new UserHeight();
@@ -25,22 +36,34 @@ public class BodyComposition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_composition);
 
+        currentWeightView = findViewById(R.id.currentWeight);
+        currentBMIView = findViewById(R.id.currentBMI);
+        currentMusclesWeightView = findViewById(R.id.currentMusclesWeight);
+        currentFatPercentsView = findViewById(R.id.currentFatPercents);
+        currentHeightView = findViewById(R.id.currentHeight);
+
+        currentWeightView.setText(0.0 + " кг");
+        currentBMIView.setText(0.0 + " eд");
+        currentMusclesWeightView.setText(0.0 + " кг");
+        currentFatPercentsView.setText(0.0 + " %");
+        currentHeightView.setText(0.0 + "м");
 
 
 
-        /* Замени эту стену на че попроще*/
-        TextView currentWeight = findViewById(R.id.currentWeight);
-        TextView currentBMI = findViewById(R.id.currentBMI);
-        TextView currentMusclesWeight = findViewById(R.id.currentMusclesWeight);
-        TextView currentFatPercents = findViewById(R.id.currentFatPercents);
-        TextView currentHeight = findViewById(R.id.currentHeight);
+//        currentWeight.setText(bodyCompositionCalculations.getUserWeight() + " кг");
+//        currentBMI.setText(bodyCompositionCalculations.getBodyMassIndex() + " eд");
+//        currentMusclesWeight.setText(bodyCompositionCalculations.getUserWeight() + " кг");
+//        currentFatPercents.setText(bodyCompositionCalculations.getUserFatPercents() + " %");
+//        currentHeight.setText(bodyCompositionCalculations.getUserHeight() + "м");
 
-        currentWeight.setText("0.0" + " кг");
-        currentBMI.setText("0.0" + " eд");
-        currentMusclesWeight.setText("0.0" + " кг");
-        currentFatPercents.setText("0.0" + " %");
-        currentHeight.setText("0.0" + "м");
+    }
 
+    public void editParametersButton(View view){
+        currentWeightView.setText(3.0 + " кг");
+        currentBMIView.setText(3.0 + " eд");
+        currentMusclesWeightView.setText(3.0 + " кг");
+        currentFatPercentsView.setText(3.0 + " %");
+        currentHeightView.setText(3.0 + "м");
     }
 
 

@@ -1,10 +1,16 @@
 package com.example.jafa.models;
 
-import java.io.Serializable;
+import android.database.sqlite.SQLiteDatabase;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import com.example.jafa.controllers.DatabaseHelper;
 import com.example.jafa.models.bodyParameters.UserFatPercents;
 import com.example.jafa.models.bodyParameters.UserHeight;
 import com.example.jafa.models.bodyParameters.UserMusclesWeight;
+import com.example.jafa.models.bodyParameters.UserName;
 import com.example.jafa.models.bodyParameters.UserWeight;
 public class BodyCompositionCalculations implements Serializable {
 
@@ -15,13 +21,34 @@ public class BodyCompositionCalculations implements Serializable {
 
     private UserFatPercents userFatPercents;
 
+    private UserName userName;
     // bodyMassIndex единственное поле без собственного класса,
     // т.к не подразумевается внесение этого параметра пользователем - его можно только вычислить
     private double bodyMassIndex;
 
+    private DatabaseHelper databaseHelper;
 
+    private SQLiteDatabase db;
+
+//    private ArrayList<Object> parameters = new ArrayList(Arrays.asList(userWeight, userHeight, userName, userMusclesWeight, userFatPercents, bodyMassIndex));
+
+
+//    private void setAllParameters(UserWeight weight, UserHeight height, UserName name, UserMusclesWeight musclesWeight,
+//                             UserFatPercents userFatPercentage, double bodyMassIndex){
+//        for (Object parameter: parameters){
+//        }
+//
+//    }
     public BodyCompositionCalculations() {
-        this.bodyMassIndex = 0.0;
+        databaseHelper.onCreate(db);
+        ArrayList<String> data = databaseHelper.getAllDataList();
+        userWeight.setParameterValue(Double.parseDouble(data.get(0)));
+        userHeight.setParameterValue(Double.parseDouble(data.get(1)));
+        userName.setUserName((data.get(2)));
+        userMusclesWeight.setParameterValue(Double.parseDouble(data.get(3)));
+        userFatPercents.setParameterValue(Double.parseDouble(data.get(4)));
+        bodyMassIndex = Double.parseDouble(data.get(5));
+        System.out.println(userWeight.getParameterValue());
     }
 
     public double getUserWeight() {

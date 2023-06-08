@@ -1,5 +1,6 @@
 package com.example.jafa.controllers;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
@@ -25,6 +29,9 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
     private static final String COLUMN_FAT_PERCENTAGE = "fat_percentage";
     private static final String COLUMN_BMI = "bmi";
 
+    private List<String> columns = new ArrayList(Arrays.asList(COLUMN_WEIGHT, COLUMN_HEIGHT, COLUMN_NAME, COLUMN_MUSCLES_WEIGHT,
+            COLUMN_FAT_PERCENTAGE, COLUMN_BMI));
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -39,6 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
                 COLUMN_MUSCLES_WEIGHT + " REAL, " +
                 COLUMN_FAT_PERCENTAGE + " REAL, " +
                 COLUMN_BMI + " REAL)");
+        getAllDataList();
     }
 
     @Override
@@ -50,6 +58,22 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<String> getAllDataList() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        ArrayList<String> dataList = new ArrayList<>();
+        if(this.getAllData().getCount() > 0){
+            for (String column : columns){
+                dataList.add(cursor.getString(cursor.getColumnIndex(column)));
+            }
+        } else {
+            this.insertData(0.0, 0.0, "John Doe", 0.0, 0.0, 0.0);
+        }
+        cursor.close();
+        return dataList;
     }
 
     public boolean insertData(double weight, double height, String name, double muscleMass, double fatPercentage, double bmi) {

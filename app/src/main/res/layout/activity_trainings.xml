@@ -12,12 +12,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
+        android:layout_margin="20dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
             style="@style/Functional_block"
             android:layout_gravity="top"
-            android:layout_margin="20dp">
+            android:layout_margin="25dp">
             <!-- Имя сета упражнений -->
             <LinearLayout
                 android:layout_width="wrap_content"
