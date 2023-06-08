@@ -51,11 +51,11 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/Functional_block_Text"
+                            android:id="@+id/step_counter_value"
                             android:layout_weight="1"
                             android:gravity="end"
                             android:paddingEnd="2dp"
-                            android:paddingRight="2dp"
-                            android:text="@string/stepscounter_value" />
+                            android:paddingRight="2dp"/>
                         <!-- Разграничитель -->
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/Functional_block_Text"

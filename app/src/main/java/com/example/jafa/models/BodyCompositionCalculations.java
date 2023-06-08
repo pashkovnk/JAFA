@@ -48,7 +48,7 @@ public class BodyCompositionCalculations implements Serializable {
         userMusclesWeight.setParameterValue(Double.parseDouble(data.get(3)));
         userFatPercents.setParameterValue(Double.parseDouble(data.get(4)));
         bodyMassIndex = Double.parseDouble(data.get(5));
-        System.out.println(userWeight.getParameterValue());
+
     }
 
     public double getUserWeight() {
@@ -98,7 +98,11 @@ public class BodyCompositionCalculations implements Serializable {
 
     // Получение ИМТ на основе роста и веса пользователя
     public void bodyMassIndexCalculation() {
-        double bodyMassIndex = userWeight.getParameterValue() / Math.pow(userHeight.getParameterValue(), 2);
+        bodyMassIndex = userWeight.getParameterValue() / Math.pow(userHeight.getParameterValue(), 2);
         setBodyMassIndex(formatting(bodyMassIndex));
+    }
+
+    public String bmiCalc(String weight, String height){
+        return String.valueOf((Double.parseDouble(weight) /  Math.pow(Double.parseDouble(height), 2)));
     }
 }

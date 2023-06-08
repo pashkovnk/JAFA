@@ -49,7 +49,6 @@ public class BodyComposition extends AppCompatActivity {
         currentHeightView.setText(0.0 + "м");
 
 
-
 //        currentWeight.setText(bodyCompositionCalculations.getUserWeight() + " кг");
 //        currentBMI.setText(bodyCompositionCalculations.getBodyMassIndex() + " eд");
 //        currentMusclesWeight.setText(bodyCompositionCalculations.getUserWeight() + " кг");
@@ -58,12 +57,12 @@ public class BodyComposition extends AppCompatActivity {
 
     }
 
-    public void editParametersButton(View view){
+    public void editParametersButton(View view) {
         currentWeightView.setText(3.0 + " кг");
-        currentBMIView.setText(3.0 + " eд");
         currentMusclesWeightView.setText(3.0 + " кг");
         currentFatPercentsView.setText(3.0 + " %");
         currentHeightView.setText(3.0 + "м");
+        currentBMIView.setText(String.valueOf((Math.ceil(3.0 / Math.pow(3.0, 2) * 10) / 10)) + " ед");
     }
 
 
