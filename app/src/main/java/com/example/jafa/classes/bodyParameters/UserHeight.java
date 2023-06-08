@@ -20,7 +20,8 @@ public class UserHeight extends BodyParameterParentClass implements Serializable
 
     @Override
     public double formatting(double value) {
-        return super.formatting(value);
+
+        return Math.abs(Math.ceil(value * 100) / 100);
     }
 
     @Override

@@ -6,4 +6,20 @@
     <string name="trainings">Тренировки</string>
     <string name="to_body_composition">Переход в раздел Состав тела</string>
     <string name="to_trainings">Переход в раздел Тренировки</string>
+
+    <!-- Названия параметров тела -->
+    <string name="BMI">ИМТ</string>
+    <string name="muscles_weight">Мышечная масса</string>
+    <string name="fat_percents">Процент жира</string>
+    <string name="height">Рост</string>
+    <string name="weight">Вес</string>
+
+    <!-- Значения для наглядности на шаблоне -->
+    <string name="BMI_value">25.3 ед</string>
+    <string name="muscles_weight_value">30.5 кг</string>
+    <string name="fat_percents_value">15.2 %</string>
+    <string name="height_value">1.78 м</string>
+    <string name="weight_value">99.9 кг</string>
+
+    <string name="stepscounter_value">6000</string>
 </resources>

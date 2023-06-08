@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Screen"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".BodyComposition">
 
@@ -21,45 +21,67 @@
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:gravity="center"
-            android:text="99.9 кг"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/weight_value"/>
 
         <LinearLayout
-            style="@style/Background_body_composition"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="bottom"
-            android:orientation="vertical"
-            android:gravity="start|top"
-            android:paddingLeft="30dp"
-            android:paddingTop="30dp"
-            android:paddingStart="30dp">
+            style="@style/Second_background">
+            <!-- Строка ИМТ значение -->
+            <LinearLayout
+                style="@style/bodyParameterRow">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/Functional_block_Name"
-                android:text="ИМТ"
-                app:fontFamily="@font/montserrat_bold" />
+                <TextView
+                    style="@style/bodyParameterName"
+                    android:text="@string/BMI" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/Functional_block_Text"
-                android:layout_width="wrap_content"
-                android:gravity="end"
-                android:text="Мышечная маса"
-                app:fontFamily="@font/montserrat_semibold" />
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/Functional_block_Text"
-                android:layout_width="wrap_content"
-                android:gravity="end"
-                android:text="% Жира"
-                app:fontFamily="@font/montserrat_semibold" />
-            <!-- Цель по шагам -->
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/Functional_block_Text"
-                android:text="Рост"
-                app:fontFamily="@font/montserrat_semibold" />
+                <TextView
+                    android:id="@+id/currentBMI"
+                    style="@style/bodyParameterValue"
+                    android:text="@string/BMI_value" />
+            </LinearLayout>
 
+            <!-- Строка Мышечная масса значение -->
+            <LinearLayout
+                style="@style/bodyParameterRow">
+
+                <TextView
+                    style="@style/bodyParameterName"
+                    android:text="@string/muscles_weight" />
+
+                <TextView
+                    android:id="@+id/currentMusclesWeight"
+                    style="@style/bodyParameterValue"
+                    android:gravity="center|end"
+                    android:text="@string/muscles_weight_value" />
+            </LinearLayout>
+
+            <!-- Строка Процент жира значение -->
+            <LinearLayout
+                style="@style/bodyParameterRow">
+
+                <TextView
+                    style="@style/bodyParameterName"
+                    android:text="@string/fat_percents" />
+
+                <TextView
+                    android:id="@+id/currentFatPercents"
+                    style="@style/bodyParameterValue"
+                    android:gravity="center|end"
+                    android:text="@string/fat_percents_value" />
+            </LinearLayout>
+
+            <!-- Строка Рост значение -->
+            <LinearLayout
+                style="@style/bodyParameterRow">
+
+                <TextView
+                    style="@style/bodyParameterName"
+                    android:text="@string/height" />
+
+                <TextView
+                    android:id="@+id/currentHeight"
+                    style="@style/bodyParameterValue"
+                    android:text="@string/height_value" />
+            </LinearLayout>
         </LinearLayout>
 
 

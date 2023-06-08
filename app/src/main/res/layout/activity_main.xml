@@ -25,61 +25,47 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25.0dp"
-            android:layout_marginRight="25.0dp"
-            android:layout_marginBottom="25dp"
             android:layout_gravity="bottom"
+            android:layout_margin="25dp"
             android:orientation="vertical">
 
             <!-- Блок шагомера -->
             <LinearLayout
                 android:id="@+id/stepcounter_block"
-                style="@style/Functional_block"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
+                style="@style/Functional_block">
 
                 <!-- Содержимое блока шагомера -->
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="23dp"
-                    android:gravity="center"
+                    style="@style/Functional_block_content"
                     android:orientation="vertical">
 
                     <!-- Шаги    пройдено/цель-->
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="0.0"
                         android:orientation="horizontal">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/Functional_block_Name"
-                            android:text="@string/stepcounter"
-                            app:fontFamily="@font/montserrat_bold" />
+                            android:text="@string/stepcounter" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/Functional_block_Text"
-                            android:layout_width="0dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="6000"
-                            app:fontFamily="@font/montserrat_semibold" />
+                            android:paddingEnd="2dp"
+                            android:paddingRight="2dp"
+                            android:text="@string/stepscounter_value" />
                         <!-- Разграничитель -->
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/Functional_block_Text"
-                            android:text="@string/stepcounter_separator"
-                            app:fontFamily="@font/montserrat_semibold" />
+                            android:text="@string/stepcounter_separator" />
                         <!-- Цель по шагам -->
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/Functional_block_Text"
-                            android:text="10000"
-                            app:fontFamily="@font/montserrat_semibold" />
-
+                            android:paddingStart="2dp"
+                            android:paddingLeft="2dp"
+                            android:text="@string/stepscounter_value" />
                     </LinearLayout>
 
                     <!-- Прогрессбар -->
@@ -96,19 +82,11 @@
             <!-- Блок состава тела -->
             <LinearLayout
                 style="@style/Functional_block"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:onClick="bodyComposition"
-                android:orientation="vertical">
+                android:onClick="bodyComposition">
 
                 <!-- Содержимое блока -->
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="23dp"
-                    android:gravity="center"
+                    style="@style/Functional_block_content"
                     android:orientation="horizontal">
 
                     <!-- Шаги    пройдено/цель-->
@@ -141,19 +119,11 @@
             <!-- Блок тренировок -->
             <LinearLayout
                 style="@style/Functional_block"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:onClick="trainings"
-                android:orientation="vertical">
+                android:onClick="trainings">
 
                 <!-- Содержимое блока -->
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="23dp"
-                    android:gravity="center"
+                    style="@style/Functional_block_content"
                     android:orientation="horizontal">
 
                     <!-- Шаги    пройдено/цель-->
