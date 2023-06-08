@@ -1,4 +1,4 @@
-package com.example.jafa;
+package com.example.jafa.controllers.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

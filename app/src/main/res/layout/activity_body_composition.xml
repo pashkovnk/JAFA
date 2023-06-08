@@ -6,84 +6,200 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".BodyComposition">
+    tools:context=".controllers.activities.BodyComposition">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
+        <!-- Отборажение веса -->
         <TextView
             android:id="@+id/currentWeight"
             style="@style/Text_for_background"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="top"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:gravity="center"
-            android:text="@string/weight_value"/>
+            android:text="@string/weight_value" />
 
-        <LinearLayout
-            style="@style/Second_background">
-            <!-- Строка ИМТ значение -->
-            <LinearLayout
-                style="@style/bodyParameterRow">
+        <!-- Лента -->
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/background_body_composition"
+            android:scrollbars="none">
 
-                <TextView
-                    style="@style/bodyParameterName"
-                    android:text="@string/BMI" />
+            <!-- Второй фон с содержимым -->
+            <LinearLayout style="@style/Second_background">
 
-                <TextView
-                    android:id="@+id/currentBMI"
-                    style="@style/bodyParameterValue"
-                    android:text="@string/BMI_value" />
+                <!-- Параметры -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Заголовок Параметры -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:gravity="center"
+                            android:text="Параметры" />
+                    </LinearLayout>
+
+                    <!-- Строка ИМТ значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/BMI" />
+
+                        <TextView
+                            android:id="@+id/currentBMI"
+                            style="@style/bodyParameterValue"
+                            android:text="@string/BMI_value" />
+                    </LinearLayout>
+
+                    <!-- Строка Мышечная масса значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/muscles_weight" />
+
+                        <TextView
+                            android:id="@+id/currentMusclesWeight"
+                            style="@style/bodyParameterValue"
+                            android:gravity="center|end"
+                            android:text="@string/muscles_weight_value" />
+                    </LinearLayout>
+
+                    <!-- Строка Процент жира значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/fat_percents" />
+
+                        <TextView
+                            android:id="@+id/currentFatPercents"
+                            style="@style/bodyParameterValue"
+                            android:gravity="center|end"
+                            android:text="@string/fat_percents_value" />
+                    </LinearLayout>
+
+                    <!-- Строка Рост значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/height" />
+
+                        <TextView
+                            android:id="@+id/currentHeight"
+                            style="@style/bodyParameterValue"
+                            android:text="@string/height_value" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Изменения -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Заголовок Изменения -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:gravity="center"
+                            android:text="Изменения" />
+                    </LinearLayout>
+
+                    <!-- Строка Вес значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="Вес" />
+
+                        <TextView
+                            android:id="@+id/progressWeight"
+                            style="@style/bodyParameterValue"
+                            android:text="@string/BMI_value" />
+                    </LinearLayout>
+
+                    <!-- Строка ИМТ значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/BMI" />
+
+                        <TextView
+                            android:id="@+id/progressBMI"
+                            style="@style/bodyParameterValue"
+                            android:text="@string/BMI_value" />
+                    </LinearLayout>
+
+                    <!-- Строка Мышечная масса значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/muscles_weight" />
+
+                        <TextView
+                            android:id="@+id/progressMusclesWeight"
+                            style="@style/bodyParameterValue"
+                            android:gravity="center|end"
+                            android:text="@string/muscles_weight_value" />
+                    </LinearLayout>
+
+                    <!-- Строка Процент жира значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/fat_percents" />
+
+                        <TextView
+                            android:id="@+id/progressFatPercents"
+                            style="@style/bodyParameterValue"
+                            android:gravity="center|end"
+                            android:text="@string/fat_percents_value" />
+                    </LinearLayout>
+
+                    <!-- Строка Рост значение -->
+                    <LinearLayout style="@style/bodyParameterRow">
+
+                        <TextView
+                            style="@style/bodyParameterName"
+                            android:text="@string/height" />
+
+                        <TextView
+                            android:id="@+id/progressHeight"
+                            style="@style/bodyParameterValue"
+                            android:text="@string/height_value" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Внести изменения"/>
             </LinearLayout>
 
-            <!-- Строка Мышечная масса значение -->
-            <LinearLayout
-                style="@style/bodyParameterRow">
-
-                <TextView
-                    style="@style/bodyParameterName"
-                    android:text="@string/muscles_weight" />
-
-                <TextView
-                    android:id="@+id/currentMusclesWeight"
-                    style="@style/bodyParameterValue"
-                    android:gravity="center|end"
-                    android:text="@string/muscles_weight_value" />
-            </LinearLayout>
-
-            <!-- Строка Процент жира значение -->
-            <LinearLayout
-                style="@style/bodyParameterRow">
-
-                <TextView
-                    style="@style/bodyParameterName"
-                    android:text="@string/fat_percents" />
-
-                <TextView
-                    android:id="@+id/currentFatPercents"
-                    style="@style/bodyParameterValue"
-                    android:gravity="center|end"
-                    android:text="@string/fat_percents_value" />
-            </LinearLayout>
-
-            <!-- Строка Рост значение -->
-            <LinearLayout
-                style="@style/bodyParameterRow">
-
-                <TextView
-                    style="@style/bodyParameterName"
-                    android:text="@string/height" />
-
-                <TextView
-                    android:id="@+id/currentHeight"
-                    style="@style/bodyParameterValue"
-                    android:text="@string/height_value" />
-            </LinearLayout>
-        </LinearLayout>
-
+        </ScrollView>
 
     </LinearLayout>
 

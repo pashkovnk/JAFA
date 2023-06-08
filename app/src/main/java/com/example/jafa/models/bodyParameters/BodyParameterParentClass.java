@@ -1,4 +1,4 @@
-package com.example.jafa.classes.bodyParameters;
+package com.example.jafa.models.bodyParameters;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ public class BodyParameterParentClass implements Serializable {
     private ArrayList<Double> parameterValuesHistory = new ArrayList<>();
 
     public BodyParameterParentClass() {
-        this.parameterValuesHistory.add((double) formatting(0));
+        this.parameterValuesHistory.add(formatting(0));
     }
 
     public double getParameterValue() {

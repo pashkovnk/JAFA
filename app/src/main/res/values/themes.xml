@@ -71,11 +71,9 @@
     <style name="Second_background">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
-        <item name="android:layout_gravity">bottom</item>
-        <item name="android:gravity">start|top</item>
+        <item name="android:gravity">top</item>
         <item name="android:orientation">vertical</item>
         <item name="android:padding">30dp</item>
-        <item name="android:background">@drawable/background_body_composition</item>
     </style>
 
     <!-- Light mode text functional block name -->
@@ -128,22 +126,22 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">25.0sp</item>
         <item name="fontFamily">@font/montserrat_bold</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_gravity">start</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_weight">0.1</item>
     </style>
 
     <!-- Значение параметра тела -->
     <style name="bodyParameterValue">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:padding">0.0dp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">25.0sp</item>
-        <item name="fontFamily">@font/montserrat_bold</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textSize">20.0sp</item>
+        <item name="fontFamily">@font/montserrat_semibold</item>
         <item name="android:layout_gravity">end</item>
         <item name="android:gravity">end</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">10dp</item>
     </style>
 
     <!-- Строка параметра тела -->

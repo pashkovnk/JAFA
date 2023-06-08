@@ -1,10 +1,10 @@
-package com.example.jafa.classes.bodyParameters;
+package com.example.jafa.models.bodyParameters;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserFatPercents extends BodyParameterParentClass implements Serializable {
-    public UserFatPercents() {
+public class UserMusclesWeight extends BodyParameterParentClass implements Serializable {
+    public UserMusclesWeight() {
         super();
     }
 

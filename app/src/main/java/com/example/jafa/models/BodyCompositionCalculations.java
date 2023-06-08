@@ -2,11 +2,10 @@ package com.example.jafa.models;
 
 import java.io.Serializable;
 
-import com.example.jafa.classes.bodyParameters.UserFatPercents;
-import com.example.jafa.classes.bodyParameters.UserHeight;
-import com.example.jafa.classes.bodyParameters.UserMusclesWeight;
-import com.example.jafa.classes.bodyParameters.UserWeight;
-/// НУЖЕН ЛИ ЭТОТ КЛАСС?
+import com.example.jafa.models.bodyParameters.UserFatPercents;
+import com.example.jafa.models.bodyParameters.UserHeight;
+import com.example.jafa.models.bodyParameters.UserMusclesWeight;
+import com.example.jafa.models.bodyParameters.UserWeight;
 public class BodyCompositionCalculations implements Serializable {
 
     private UserWeight userWeight;

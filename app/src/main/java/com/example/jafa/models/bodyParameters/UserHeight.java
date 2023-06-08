@@ -1,10 +1,10 @@
-package com.example.jafa.classes.bodyParameters;
+package com.example.jafa.models.bodyParameters;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserMusclesWeight extends BodyParameterParentClass implements Serializable {
-    public UserMusclesWeight() {
+public class UserHeight extends BodyParameterParentClass implements Serializable {
+    public UserHeight() {
         super();
     }
 
@@ -20,7 +20,7 @@ public class UserMusclesWeight extends BodyParameterParentClass implements Seria
 
     @Override
     public double formatting(double value) {
-        return super.formatting(value);
+        return Math.abs(Math.ceil(value * 100) / 100);
     }
 
     @Override

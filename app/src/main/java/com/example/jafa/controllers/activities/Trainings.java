@@ -1,8 +1,10 @@
-package com.example.jafa;
+package com.example.jafa.controllers.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.jafa.R;
 
 public class Trainings extends AppCompatActivity {
 
