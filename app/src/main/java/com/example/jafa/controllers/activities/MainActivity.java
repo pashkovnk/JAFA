@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void bodyComposition(View view) {
 
-        SQLiteDatabase database = databaseHelper.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
+//        SQLiteDatabase database = databaseHelper.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
 
         Intent toBodyCompositionScreen = new Intent(MainActivity.this, BodyComposition.class);
         startActivity(toBodyCompositionScreen);

@@ -8,13 +8,6 @@
     android:orientation="vertical"
     tools:context="com.example.jafa.controllers.activities.MainActivity">
 
-    <Toolbar
-        android:id="@+id/toolbar"
-        style="@style/Toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:gravity="center"
-        tools:targetApi="lollipop" />
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -28,6 +21,13 @@
             android:layout_gravity="bottom"
             android:layout_margin="25dp"
             android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_v2_light"
+                android:layout_margin="30dp">
+            </ImageView>
 
             <!-- Блок шагомера -->
             <LinearLayout
@@ -67,14 +67,6 @@
                             android:paddingLeft="2dp"
                             android:text="@string/stepscounter_value" />
                     </LinearLayout>
-
-                    <!-- Прогрессбар -->
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="7dp"
-                        android:layout_gravity="bottom"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/progress_bar" />
 
                 </LinearLayout>
             </LinearLayout>
