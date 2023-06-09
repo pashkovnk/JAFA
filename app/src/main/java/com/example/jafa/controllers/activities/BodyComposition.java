@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.jafa.R;
+import com.example.jafa.controllers.DatabaseHelper;
 import com.example.jafa.models.bodyParameters.UserBMI;
 import com.example.jafa.models.bodyParameters.UserFatPercents;
 import com.example.jafa.models.bodyParameters.UserHeight;
@@ -15,6 +16,7 @@ import com.example.jafa.models.bodyParameters.UserMusclesWeight;
 import com.example.jafa.models.bodyParameters.UserWeight;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Класс экрана "Состав тела"
@@ -49,6 +51,8 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
     private UserMusclesWeight userMusclesWeight = new UserMusclesWeight();
     private UserBMI userBMI = new UserBMI();
 
+    private DatabaseHelper db = new DatabaseHelper(this);
+
     /**
      * Метод создания экрана  - установка
      */
@@ -57,6 +61,8 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_composition);
+
+        List<String> data = db.getLastDataList();
 
         currentWeightView = findViewById(R.id.currentWeight);
         currentBMIView = findViewById(R.id.currentBMI);
@@ -102,6 +108,7 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
         userBMI.setParameterValue(userWeight.getParameterValue(), userHeight.getParameterValue());
         currentBMIView.setText(String.valueOf(userBMI.getParameterValue(userWeight.getParameterValue(),userHeight.getParameterValue())) + " ед");
 
+        db.addData(userWeight.getParameterValue(), userHeight.getParameterValue(), userMusclesWeight.getParameterValue(), userFatPercents.getParameterValue(), userBMI.getParameterValue(userWeight.getParameterValue(), userHeight.getParameterValue()));
     }
 
 

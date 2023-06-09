@@ -17,103 +17,90 @@ import java.util.List;
  */
 public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
 
-
-    /** Поля БД **/
-    private static final String DATABASE_NAME = "userData.db";
     private static final int DATABASE_VERSION = 1;
-
+    private static final String DATABASE_NAME = "userData";
     private static final String TABLE_NAME = "data";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_WEIGHT = "weight";
     private static final String COLUMN_HEIGHT = "height";
-    private static final String COLUMN_NAME = "name";
     private static final String COLUMN_MUSCLES_WEIGHT = "muscle_mass";
-    private static final String COLUMN_FAT_PERCENTAGE = "fat_percentage";
+    private static final String COLUMN_FAT_PERCENTAGE = "fat_percents";
     private static final String COLUMN_BMI = "bmi";
 
-
-    /** Конструктор класса **/
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    /** Метод создания базы данных **/
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
+        String tableCreationRequest = "CREATE TABLE " + TABLE_NAME + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_WEIGHT + " REAL, " +
                 COLUMN_HEIGHT + " REAL, " +
-                COLUMN_NAME + " TEXT, " +
                 COLUMN_MUSCLES_WEIGHT + " REAL, " +
                 COLUMN_FAT_PERCENTAGE + " REAL, " +
-                COLUMN_BMI + " REAL)");
-        getAllDataList();
+                COLUMN_BMI + " REAL)";
+        db.execSQL(tableCreationRequest);
     }
 
-    /** Метод перехода на новую версию БД **/
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
-    /** Метод получения данных из БД **/
-    public Cursor getAllData() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-    }
-
-    /** Метод получения данных из БД **/
     @SuppressLint("Range")
-    public ArrayList<String> getAllDataList() {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public List<String> getAllDataList() {
+        List<String> dataList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        ArrayList<String> dataList = new ArrayList<>();
-        List<String> columns = new ArrayList(Arrays.asList(COLUMN_WEIGHT, COLUMN_HEIGHT, COLUMN_NAME, COLUMN_MUSCLES_WEIGHT,
-                COLUMN_FAT_PERCENTAGE, COLUMN_BMI));
-        if (this.getAllData().getCount() > 0) {
-            for (String column : columns) {
-                dataList.add(cursor.getString(cursor.getColumnIndex(column)));
-            }
-        } else {
-            this.insertData(0.0, 0.0, "John Doe", 0.0, 0.0, 0.0);
+        if (cursor.moveToFirst()) {
+            do {
+                String dataString = "";
+                dataString += cursor.getInt(cursor.getColumnIndex(COLUMN_ID)) + ", ";
+                dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_WEIGHT)) + ", ";
+                dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_HEIGHT)) + ", ";
+                dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_MUSCLES_WEIGHT)) + ", ";
+                dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_FAT_PERCENTAGE)) + ", ";
+                dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_BMI));
+                dataList.add(dataString);
+            } while (cursor.moveToNext());
         }
         cursor.close();
+        db.close();
         return dataList;
     }
 
-    /** Метод передачи данных в БД **/
-    public boolean insertData(double weight, double height, String name, double muscleMass, double fatPercentage, double bmi) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_WEIGHT, weight);
-        contentValues.put(COLUMN_HEIGHT, height);
-        contentValues.put(COLUMN_NAME, name);
-        contentValues.put(COLUMN_MUSCLES_WEIGHT, muscleMass);
-        contentValues.put(COLUMN_FAT_PERCENTAGE, fatPercentage);
-        contentValues.put(COLUMN_BMI, bmi);
-        long result = db.insert(TABLE_NAME, null, contentValues);
-        return result != -1;
+    @SuppressLint("Range")
+    public List<String> getLastDataList() {
+        List<String> dataList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_ID + " DESC LIMIT 1", null);
+        if (cursor.moveToFirst()) {
+            String dataString = "";
+            dataString += cursor.getInt(cursor.getColumnIndex(COLUMN_ID)) + ", ";
+            dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_WEIGHT)) + ", ";
+            dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_HEIGHT)) + ", ";
+            dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_MUSCLES_WEIGHT)) + ", ";
+            dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_FAT_PERCENTAGE)) + ", ";
+            dataString += cursor.getFloat(cursor.getColumnIndex(COLUMN_BMI));
+            dataList.add(dataString);
+        }
+        cursor.close();
+        db.close();
+        return dataList;
     }
 
-    /** Метод обновления данных в БД **/
-    public boolean updateData(int id, double weight, double height, String name, double muscleMass, double fatPercentage, double bmi) {
+    public void addData(double weight, double height, double muscleMass, double fatPercents, double bmi) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_WEIGHT, weight);
-        contentValues.put(COLUMN_HEIGHT, height);
-        contentValues.put(COLUMN_NAME, name);
-        contentValues.put(COLUMN_MUSCLES_WEIGHT, muscleMass);
-        contentValues.put(COLUMN_FAT_PERCENTAGE, fatPercentage);
-        contentValues.put(COLUMN_BMI, bmi);
-        int result = db.update(TABLE_NAME, contentValues, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
-        return result > 0;
-    }
-
-    /** Метод удаления данных из БД **/
-    public Integer deleteData(int id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_WEIGHT, weight);
+        values.put(COLUMN_HEIGHT, height);
+        values.put(COLUMN_MUSCLES_WEIGHT, muscleMass);
+        values.put(COLUMN_FAT_PERCENTAGE, fatPercents);
+        values.put(COLUMN_BMI, bmi);
+        db.insert(TABLE_NAME, null, values);
+        db.close();
     }
 }
