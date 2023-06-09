@@ -1,8 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JAFA</string>
     <string name="body_composition">Состав тела</string>
     <string name="stepcounter">Шаги</string>
     <string name="stepcounter_separator">/</string>
     <string name="trainings">Тренировки</string>
+    <string name="to_body_composition">Переход в раздел Состав тела</string>
+    <string name="to_trainings">Переход в раздел Тренировки</string>
+
+    <!-- Названия параметров тела -->
+    <string name="BMI">ИМТ</string>
+    <string name="muscles_weight">Мышечная масса</string>
+    <string name="fat_percents">Процент жира</string>
+    <string name="height">Рост</string>
+    <string name="weight">Вес</string>
+
+    <!-- Значения для наглядности на шаблоне -->
+    <string name="BMI_value">0.0 ед</string>
+    <string name="muscles_weight_value">0.0 кг</string>
+    <string name="fat_percents_value">0.0 %</string>
+    <string name="height_value">0.0 м</string>
+    <string name="weight_value">0.0 кг</string>
+
+    <string name="stepscounter_value">6000</string>
 </resources>

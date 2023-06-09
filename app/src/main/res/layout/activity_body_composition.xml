@@ -16,7 +16,9 @@
         tools:layout_editor_absoluteY="0dp">
 
         <!-- Отборажение веса -->
-        <TextView
+
+        <!-- Лента -->
+        <EditText
             android:id="@+id/currentWeight"
             style="@style/Text_for_background"
             android:layout_width="fill_parent"
@@ -27,7 +29,6 @@
             android:gravity="center"
             android:text="@string/weight_value" />
 
-        <!-- Лента -->
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -72,7 +73,7 @@
                             style="@style/bodyParameterName"
                             android:text="@string/muscles_weight" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/currentMusclesWeight"
                             style="@style/bodyParameterValue"
                             android:gravity="center|end"
@@ -86,7 +87,7 @@
                             style="@style/bodyParameterName"
                             android:text="@string/fat_percents" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/currentFatPercents"
                             style="@style/bodyParameterValue"
                             android:gravity="center|end"
@@ -100,7 +101,7 @@
                             style="@style/bodyParameterName"
                             android:text="@string/height" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/currentHeight"
                             style="@style/bodyParameterValue"
                             android:text="@string/height_value" />

@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import com.example.jafa.R;
 import com.example.jafa.models.*;
+import com.example.jafa.models.bodyParameters.UserBMI;
+import com.example.jafa.models.bodyParameters.UserFatPercents;
+import com.example.jafa.models.bodyParameters.UserHeight;
+import com.example.jafa.models.bodyParameters.UserMusclesWeight;
+import com.example.jafa.models.bodyParameters.UserWeight;
 
 import java.io.Serializable;
 
@@ -23,7 +28,6 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
     /**
      * Поле класса с вычислениями
      **/
-    private BodyCompositionCalculations bodyCompositionCalculations;
 
     /**
      * Поля класса текстовых полей
@@ -34,9 +38,20 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
     private TextView currentFatPercentsView;
     private TextView currentHeightView;
 
+    private TextView progressWeightView;
+    private TextView progressBMIView;
+    private TextView progressMusclesWeightView;
+    private TextView progressFatPercentsView;
+    private TextView progressHeightView;
+
+    private UserWeight userWeight = new UserWeight();
+    private UserHeight userHeight = new UserHeight();
+    private UserFatPercents userFatPercents = new UserFatPercents();
+    private UserMusclesWeight userMusclesWeight = new UserMusclesWeight();
+    private UserBMI userBMI = new UserBMI();
 
     /**
-     * Метод создания экрана
+     * Метод создания экрана  - установка
      */
     @SuppressLint("SetTextI18n")
     @Override
@@ -50,11 +65,18 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
         currentFatPercentsView = findViewById(R.id.currentFatPercents);
         currentHeightView = findViewById(R.id.currentHeight);
 
-        currentWeightView.setText(0.0 + " кг");
-        currentBMIView.setText(0.0 + " eд");
-        currentMusclesWeightView.setText(0.0 + " кг");
-        currentFatPercentsView.setText(0.0 + " %");
-        currentHeightView.setText(0.0 + "м");
+        progressWeightView = findViewById(R.id.progressWeight);
+        progressBMIView = findViewById(R.id.progressBMI);
+        progressMusclesWeightView = findViewById(R.id.progressMusclesWeight);
+        progressFatPercentsView = findViewById(R.id.progressFatPercents);
+        progressHeightView = findViewById(R.id.progressHeight);
+
+
+        currentWeightView.setText(userWeight.getParameterValue() + " кг");
+        currentBMIView.setText(userBMI.getParameterValue(userWeight.getParameterValue(),userHeight.getParameterValue()) + " ед");
+        currentMusclesWeightView.setText(userMusclesWeight.getParameterValue() + " кг");
+        currentFatPercentsView.setText(userFatPercents.getParameterValue() + " %");
+        currentHeightView.setText(userHeight.getParameterValue() + "м");
 
     }
 
@@ -64,11 +86,23 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
      * @param view
      */
     public void editParametersButton(View view) {
-        currentWeightView.setText(3.0 + " кг");
-        currentMusclesWeightView.setText(3.0 + " кг");
-        currentFatPercentsView.setText(3.0 + " %");
-        currentHeightView.setText(3.0 + "м");
-        currentBMIView.setText(String.valueOf((Math.ceil(3.0 / Math.pow(3.0, 2) * 10) / 10)) + " ед");
+
+        progressWeightView.setText(String.valueOf(userWeight.formattingFromView(String.valueOf(currentWeightView.getText())) - userWeight.getParameterValue()) + " кг");
+        userWeight.setParameterValue(userWeight.formattingFromView(String.valueOf(currentWeightView.getText())));
+
+        progressMusclesWeightView.setText(String.valueOf(userMusclesWeight.formattingFromView(String.valueOf(currentMusclesWeightView.getText())) - userMusclesWeight.getParameterValue()) + " кг");
+        userWeight.setParameterValue(userMusclesWeight.formattingFromView(String.valueOf(currentMusclesWeightView.getText())));
+
+        progressFatPercentsView.setText(String.valueOf(userFatPercents.formattingFromView(String.valueOf(currentFatPercentsView.getText())) - userFatPercents.getParameterValue()) + " %");
+        userWeight.setParameterValue(userFatPercents.formattingFromView(String.valueOf(currentFatPercentsView.getText())));
+
+        progressHeightView.setText(String.valueOf(userHeight.formattingFromView(String.valueOf(currentHeightView.getText())) - userHeight.getParameterValue()) + " м");
+        userWeight.setParameterValue(userHeight.formattingFromView(String.valueOf(currentHeightView.getText())));
+
+        progressBMIView.setText(String.valueOf(userBMI.bmiCalc(userWeight.getParameterValue(), userHeight.getParameterValue()) - userBMI.getParameterValue(userWeight.getParameterValue(), userHeight.getParameterValue())) + " ед");
+        userBMI.setParameterValue(userWeight.getParameterValue(), userHeight.getParameterValue());
+        currentBMIView.setText(String.valueOf(userBMI.getParameterValue(userWeight.getParameterValue(),userHeight.getParameterValue())) + " ед");
+
     }
 
 

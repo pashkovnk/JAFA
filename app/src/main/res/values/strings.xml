@@ -15,11 +15,11 @@
     <string name="weight">Вес</string>
 
     <!-- Значения для наглядности на шаблоне -->
-    <string name="BMI_value">25.3 ед</string>
-    <string name="muscles_weight_value">30.5 кг</string>
-    <string name="fat_percents_value">15.2 %</string>
-    <string name="height_value">1.78 м</string>
-    <string name="weight_value">99.9 кг</string>
+    <string name="BMI_value">0.0 ед</string>
+    <string name="muscles_weight_value">0.0 кг</string>
+    <string name="fat_percents_value">0.0 %</string>
+    <string name="height_value">0.0 м</string>
+    <string name="weight_value">0.0 кг</string>
 
     <string name="stepscounter_value">6000</string>
 </resources>

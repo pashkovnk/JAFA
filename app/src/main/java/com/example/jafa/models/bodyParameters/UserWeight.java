@@ -1,40 +1,26 @@
 package com.example.jafa.models.bodyParameters;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-public class UserWeight extends BodyParameterParentClass implements Serializable {
+public class UserWeight implements Serializable {
+    private double weightValue;
+
     public UserWeight() {
-        super();
+        this.setParameterValue(formatting(0));
     }
 
-    @Override
     public double getParameterValue() {
-        return super.getParameterValue();
+        return this.weightValue;
     }
 
-    @Override
-    public void setParameterValue(double parameterValue) {
-        super.setParameterValue(parameterValue);
+    public void setParameterValue(double value) {
+        this.weightValue = value;
     }
 
-    @Override
-    public void setParameterValuesHistory(ArrayList<Double> parameterValuesHistory) {
-        super.setParameterValuesHistory(parameterValuesHistory);
+    public double formattingFromView(String fromView){
+       return Double.parseDouble(fromView.replaceAll("[^\\d.]", ""));
     }
-
-    @Override
-    public ArrayList<Double> getParameterValuesHistory() {
-        return super.getParameterValuesHistory();
-    }
-
-    @Override
     public double formatting(double value) {
-        return super.formatting(value);
-    }
-
-    @Override
-    public double checkProgress() {
-        return super.checkProgress();
+        return Math.abs(Math.ceil(value * 10) / 10);
     }
 }
