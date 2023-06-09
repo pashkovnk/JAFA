@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.jafa.R;
-import com.example.jafa.models.*;
 import com.example.jafa.models.bodyParameters.UserBMI;
 import com.example.jafa.models.bodyParameters.UserFatPercents;
 import com.example.jafa.models.bodyParameters.UserHeight;
