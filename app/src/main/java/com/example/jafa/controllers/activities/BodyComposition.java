@@ -16,7 +16,6 @@ import com.example.jafa.models.bodyParameters.UserMusclesWeight;
 import com.example.jafa.models.bodyParameters.UserWeight;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Класс экрана "Состав тела"
@@ -62,7 +61,7 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_composition);
 
-        List<String> data = db.getLastDataList();
+        String[] data = db.getLastDataList().get(0).split(", ");
 
         currentWeightView = findViewById(R.id.currentWeight);
         currentBMIView = findViewById(R.id.currentBMI);
@@ -77,11 +76,11 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
         progressHeightView = findViewById(R.id.progressHeight);
 
 
-        currentWeightView.setText(userWeight.getParameterValue() + " кг");
-        currentBMIView.setText(userBMI.getValue() + " ед");
-        currentMusclesWeightView.setText(userMusclesWeight.getParameterValue() + " кг");
-        currentFatPercentsView.setText(userFatPercents.getParameterValue() + " %");
-        currentHeightView.setText(userHeight.getParameterValue() + "м");
+        currentWeightView.setText(data[1] + " кг");
+        currentBMIView.setText(data[5] + " ед");
+        currentMusclesWeightView.setText(data[3] + " кг");
+        currentFatPercentsView.setText(data[4] + " %");
+        currentHeightView.setText(data[2] + "м");
 
     }
 

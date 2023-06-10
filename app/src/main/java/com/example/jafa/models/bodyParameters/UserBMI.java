@@ -1,19 +1,24 @@
 package com.example.jafa.models.bodyParameters;
 
+import android.content.Context;
+
+import com.example.jafa.controllers.DatabaseHelper;
+
 import java.io.Serializable;
 
+
 public class UserBMI implements Serializable {
+
     private static double bmiValue = 0.0;
 
     public UserBMI() {
-        this.setBaseParameterValue();
     }
 
     public double getParameterValue(double weight, double height) {
         return bmiValue = bmiCalc(weight, height);
     }
 
-    public double getValue(){
+    public double getValue() {
         return bmiValue;
     }
 
@@ -21,9 +26,6 @@ public class UserBMI implements Serializable {
         this.bmiValue = formatting(weight / Math.pow(height, 2));
     }
 
-    private void setBaseParameterValue() {
-        bmiValue = 0.0;
-    }
 
     public double bmiCalc(double weight, double height) {
         return formatting(weight / Math.pow(height, 2));
