@@ -13,21 +13,26 @@ public class UserBMI implements Serializable {
         return bmiValue = bmiCalc(weight, height);
     }
 
+    public double getValue(){
+        return bmiValue;
+    }
+
     public void setParameterValue(double weight, double height) {
         bmiValue = formatting(weight / Math.pow(height, 2));
     }
 
-    private void setBaseParameterValue(){
+    private void setBaseParameterValue() {
         bmiValue = 0.0;
     }
 
-    public double bmiCalc(double weight, double height){
+    public double bmiCalc(double weight, double height) {
         return formatting(weight / Math.pow(height, 2));
     }
 
-    public double formattingFromView(String fromView){
+    public double formattingFromView(String fromView) {
         return Double.parseDouble(fromView.replaceAll("[^\\d.]", ""));
     }
+
     public double formatting(double value) {
         return Math.ceil(value * 10) / 10;
     }

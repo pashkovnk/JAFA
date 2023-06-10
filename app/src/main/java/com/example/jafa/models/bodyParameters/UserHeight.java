@@ -6,7 +6,7 @@ public class UserHeight implements Serializable {
     private double heightValue;
 
     public UserHeight() {
-        this.setParameterValue(formatting(2));
+        this.setParameterValue(formatting(0));
     }
 
     public double getParameterValue() {
