@@ -37,13 +37,19 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         stepCountTextView = findViewById(R.id.step_counter_value);
         updateStepCount();
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateStepCount();
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         stepCounter.unregister();
     }
+
+
 
     private void updateStepCount() {
         int stepCount = stepCounter.getStepCount();

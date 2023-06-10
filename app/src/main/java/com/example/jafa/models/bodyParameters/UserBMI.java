@@ -3,7 +3,7 @@ package com.example.jafa.models.bodyParameters;
 import java.io.Serializable;
 
 public class UserBMI implements Serializable {
-    private static double bmiValue;
+    private static double bmiValue = 0.0;
 
     public UserBMI() {
         this.setBaseParameterValue();
@@ -18,7 +18,7 @@ public class UserBMI implements Serializable {
     }
 
     public void setParameterValue(double weight, double height) {
-        bmiValue = formatting(weight / Math.pow(height, 2));
+        this.bmiValue = formatting(weight / Math.pow(height, 2));
     }
 
     private void setBaseParameterValue() {

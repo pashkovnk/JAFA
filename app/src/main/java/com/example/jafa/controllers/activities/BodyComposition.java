@@ -78,7 +78,7 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
 
 
         currentWeightView.setText(userWeight.getParameterValue() + " кг");
-        currentBMIView.setText(userBMI.getParameterValue(userWeight.getParameterValue(), userHeight.getParameterValue()) + " ед");
+        currentBMIView.setText(userBMI.getValue() + " ед");
         currentMusclesWeightView.setText(userMusclesWeight.getParameterValue() + " кг");
         currentFatPercentsView.setText(userFatPercents.getParameterValue() + " %");
         currentHeightView.setText(userHeight.getParameterValue() + "м");
@@ -101,24 +101,24 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
 
         if ((String.valueOf(currentMusclesWeightView.getText())).replaceAll("[^\\d.]", "") != null) {
             progressMusclesWeightView.setText(String.valueOf(userMusclesWeight.formattingFromView(String.valueOf(currentMusclesWeightView.getText())) - userMusclesWeight.getParameterValue()) + " кг");
-            userWeight.setParameterValue(userMusclesWeight.formattingFromView(String.valueOf(currentMusclesWeightView.getText())));
+            userMusclesWeight.setParameterValue(userMusclesWeight.formattingFromView(String.valueOf(currentMusclesWeightView.getText())));
         } else {
             currentMusclesWeightView.setText(String.valueOf(userMusclesWeight.getParameterValue()));
         }
 
         if ((String.valueOf(currentFatPercentsView.getText())).replaceAll("[^\\d.]", "") != null) {
             progressFatPercentsView.setText(String.valueOf(userFatPercents.formattingFromView(String.valueOf(currentFatPercentsView.getText())) - userFatPercents.getParameterValue()) + " %");
-            userWeight.setParameterValue(userFatPercents.formattingFromView(String.valueOf(currentFatPercentsView.getText())));
+            userFatPercents.setParameterValue(userFatPercents.formattingFromView(String.valueOf(currentFatPercentsView.getText())));
 
         } else {
             currentFatPercentsView.setText(String.valueOf(userFatPercents.getParameterValue()));
         }
 
-        if ((String.valueOf(currentHeightView.getText())).replaceAll("[^\\d.]", "") != null) {
+        if ((String.valueOf(currentHeightView.getText())).replaceAll("[^\\d.]", "") != null || (Double.parseDouble(String.valueOf(currentHeightView.getText()).replaceAll("[^\\d.]", "")) != 0.0)) {
             progressHeightView.setText(String.valueOf(userHeight.formattingFromView(String.valueOf(currentHeightView.getText())) - userHeight.getParameterValue()) + " м");
-            userWeight.setParameterValue(userHeight.formattingFromView(String.valueOf(currentHeightView.getText())));
+            userHeight.setParameterValue(userHeight.formattingFromView(String.valueOf(currentHeightView.getText())));
         } else {
-            currentFatPercentsView.setText(String.valueOf(userFatPercents.getParameterValue()));
+            currentHeightView.setText(String.valueOf(userFatPercents.getParameterValue()));
         }
 
         if (((String.valueOf(currentHeightView.getText())).replaceAll("[^\\d.]", "") != null) && ((String.valueOf(currentWeightView.getText())).replaceAll("[^\\d.]", "") != null)) {
