@@ -121,7 +121,7 @@ public class BodyComposition extends AppCompatActivity implements Serializable {
         }
 
         if (((String.valueOf(currentHeightView.getText())).replaceAll("[^\\d.]", "") != null) && ((String.valueOf(currentWeightView.getText())).replaceAll("[^\\d.]", "") != null)) {
-            progressBMIView.setText(String.valueOf(userBMI.bmiCalc(userWeight.getParameterValue(), userHeight.getParameterValue()) - userBMI.getValue()) + " ед");
+            progressBMIView.setText(String.valueOf(userBMI.formatting(userBMI.bmiCalc(userWeight.getParameterValue(), userHeight.getParameterValue()) - userBMI.getValue())) + " ед");
             userBMI.setParameterValue(userWeight.getParameterValue(), userHeight.getParameterValue());
             currentBMIView.setText(String.valueOf(userBMI.getParameterValue(userWeight.getParameterValue(), userHeight.getParameterValue())) + " ед");
         } else {
